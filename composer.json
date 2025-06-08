@@ -1,0 +1,49 @@
+{
+	"name": "mrhdolek/php-vanilla-boilerplate",
+	"description": "php-vanilla-boilerplate",
+	"keywords": [
+		"PHP 8.4",
+		"PhpUnit",
+		"Docker",
+		"Composer",
+		"CLImate"
+	],
+	"license": "MIT",
+	"type": "project",
+	"homepage": "https://github.com/MrHDOLEK/php-vanilla-boilerplate",
+	"authors": [
+		{
+			"name": "Aleksander Kowalski",
+			"email": "mrhdolek14@gmail.com",
+			"homepage": "https://github.com/MrHDOLEK"
+		}
+	],
+	"autoload": {
+		"psr-4": {
+			"Vanilla\\": "src/"
+		}
+	},
+	"autoload-dev": {
+		"psr-4": {
+			"Tests\\": "tests/"
+		}
+	},
+	"require": {
+		"php": "^8.4",
+		"illuminate/support": "^v12.17",
+		"league/climate": "^3.10"
+	},
+	"require-dev": {
+		"phpunit/phpunit": "^12.2.1",
+		"blumilksoftware/codestyle": "^v4.1.0",
+		"phpstan/phpstan": "^2.1.17"
+	},
+	"scripts": {
+		"cs:fix": "PHP_CS_FIXER_IGNORE_ENV=1 ./vendor/bin/php-cs-fixer fix --diff --config codestyle.php",
+		"cs:check": "PHP_CS_FIXER_IGNORE_ENV=1 ./vendor/bin/php-cs-fixer fix --dry-run --diff --config codestyle.php",
+		"phpstan": [
+			"php -d memory_limit=600M vendor/bin/phpstan analyse -c phpstan.neon"
+		],
+		"test": "phpunit"
+	}
+}
