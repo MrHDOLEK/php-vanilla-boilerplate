@@ -1,0 +1,29 @@
+services:
+  app:
+    container_name: vanilla-app
+    build:
+      context: .
+      dockerfile: .docker/php/Dockerfile
+      target: ${DOCKER_TARGET_APP:-prod}
+      args:
+        INSTALL_XDEBUG: ${DOCKER_INSTALL_XDEBUG:-false}
+    working_dir: /var/www
+    environment:
+      DOCKER: "1"
+      PHP_IDE_CONFIG: "serverName=vanilla.local"
+    volumes:
+      - ./.docker/php/php.ini:/usr/local/etc/php/conf.d/php.ini:ro
+      - ./.docker/php/php-fpm.conf:/usr/local/etc/php-fpm.d/php-fpm.conf:ro
+      - ./.docker/php/xdebug.ini:/usr/local/etc/php/conf.d/xdebug.ini:ro
+      - .:/var/www:delegated
+    ports:
+      - "${EXTERNAL_APP_PORT:-80}:8000"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    networks:
+      - vanilla
+    restart: unless-stopped
+networks:
+  vanilla:
+    driver: bridge
+    name: vanilla-network
