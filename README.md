@@ -11,23 +11,74 @@ Clean, simple, and modern PHP boilerplate with Docker support, testing, and deve
 
 ## Project setup
 
-### Development
+You can run this project using either **Docker** (via Make commands) or **Nix**. Choose the option that best fits your workflow.
+
+## 🐳 Docker Environment
+
+### Prerequisites
+- Docker and Docker Compose
+- Make (for Windows: install from [here](http://gnuwin32.sourceforge.net/packages/make.htm))
+
+### Setup and Usage
+
+#### Development
 If you have problems with permissions please add sudo before make example:
 - `sudo make install`
 - `sudo make start`
 
-### Run env for Mac/Linux
+#### Mac/Linux
+```bash
+make install
+make start
+```
 
-- `make install`
-- `make start`
+#### Windows
+```bash
+make install
+make start
+```
 
-### Run env for Windows
-Please install packages makefile for [Windows](http://gnuwin32.sourceforge.net/packages/make.htm)
-- `make install`
-- `make start`
-
-### Address where the environment is available
+#### Address where the environment is available
 - `http://localhost:8000`
+
+#### All Docker commands
+- `make help` - Show all available commands
+
+## ❄️ Nix Environment
+
+### Prerequisites
+- [Nix package manager](https://nixos.org/download.html)
+
+### Setup and Usage
+
+#### Enter development environment
+```bash
+# Enter the Nix shell (automatically installs all dependencies)
+nix-shell
+```
+
+#### Development workflow with Nix
+```bash
+# Enter Nix shell
+nix-shell
+
+# Check PHP version and path
+type php
+php --version
+
+# Install PHP dependencies
+composer install
+
+# Start development server
+php -S localhost:8000 -t public/
+
+# Run tests
+composer test
+
+# Code quality checks
+composer phpstan
+composer cs-fix
+```
 
 ## All commands
 
