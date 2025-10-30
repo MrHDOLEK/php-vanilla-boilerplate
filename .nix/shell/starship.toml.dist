@@ -1,0 +1,3 @@
+[php]
+style = "blue"
+format = 'via [$symbol($version )]($style)'
