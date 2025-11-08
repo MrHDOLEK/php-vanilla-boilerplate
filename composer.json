@@ -35,7 +35,7 @@
 	},
 	"require-dev": {
 		"phpunit/phpunit": "^12.2.1",
-		"blumilksoftware/codestyle": "^v4.1.0",
+		"blumilksoftware/codestyle": "^v5.0.0",
 		"phpstan/phpstan": "^2.1.17"
 	},
 	"scripts": {
