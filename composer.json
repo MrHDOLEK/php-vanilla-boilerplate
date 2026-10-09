@@ -30,12 +30,12 @@
 	},
 	"require": {
 		"php": "^8.4",
-		"illuminate/support": "^v12.17",
+		"illuminate/support": "^v13.0.0",
 		"league/climate": "^3.10"
 	},
 	"require-dev": {
-		"phpunit/phpunit": "^12.2.1",
-		"blumilksoftware/codestyle": "^v4.1.0",
+		"phpunit/phpunit": "^13.0.0",
+		"blumilksoftware/codestyle": "^v5.0.0",
 		"phpstan/phpstan": "^2.1.17"
 	},
 	"scripts": {
